@@ -1,0 +1,23 @@
+.InvieHero{
+  background-color: #466173;
+  padding: 20px;
+  height: 500px;
+}
+
+.InvieHero-header{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+
+.InvieHero-copy-title{
+      font-size: 63px
+    }
+
+.InvieFooter{
+  background-color: #273b47;
+}
