@@ -3,13 +3,29 @@
   --bg-header: #466173;
   --bg-footer: #273b47;
 
+  --btn-gradient: #fd324e;
+  --btn-gradient-start: color(var(--btn-gradient) blackness(30%));
+  --btn-gradient-end: color(var(--btn-gradient) lightness(+10%) hue(10%));
+
   --fontsize: 18px;
 }
 
+/* -- Custom Media queries */
+
+@custom-media --mobile (max-width: 500px);
+@custom-media --tablet (max-width: 650px);
+@custom-media --desktop (max-width: 800px);
+@custom-media --retina (-webkit-min-device-pixel-ratio: 2);
+
 .InvieHero{
-  background-color: var(--bg-header);
+  background-image: url('../images/background.png');
   padding: 20px;
   height: 500px;
+
+  @media (--retina){
+    background-image: url('../images/background2x.png');   
+  }
+
 
   &-header{
     display: flex;
@@ -17,9 +33,28 @@
     justify-content: space-between;
   }
 
+  &-logo{
+    transition: all 0.3s ease-in;
+    &:hover{
+      filter: blur(1px);
+    }
+  }
+
   &-copy{
     &-title{
-      font-size: calc(var(--fontsize) * 3.5)
+      font-size: calc(var(--fontsize) * 3.5);
+    }
+
+    &-btn{
+      border-radius: 12px;
+      border: none;
+      color: var(--bg-body);
+      padding: 7px 12px;
+      cursor: pointer;
+      font-size: var(--fontsize);
+      text-decoration: none;
+      background: var(--btn-gradient);
+      background: linear-gradient(to left, var(--btn-gradient-start), var(--btn-gradient-end));
     }
   }
 }

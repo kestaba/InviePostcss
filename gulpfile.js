@@ -1,8 +1,9 @@
 var gulp = require('gulp')
 var postcss = require('gulp-postcss')
 var cssnext = require('postcss-cssnext')
-var autoprefixer = require('autoprefixer')
+//var autoprefixer = require('autoprefixer')
 var cssnested = require('postcss-nested')
+var mixins = require('postcss-mixins')
 var browserSync = require('browser-sync').create()
 
 
@@ -23,6 +24,8 @@ gulp.task('css', function(){
         //autoprefixer({ browsers: ['> 5%', 'ie 8']}), // Plugin de postcss, estos deben llevar un cierto orden para evitar errores.
                                                     /* 1. A que navegadores queremos dar soporte, ej. más del 5% de utilización, de lo contrario no le colocará esos procesos especiales que tenga para ellos.
                                                      2. Que de soporte a IE a partir del 8, de esta manera incluirá vendorprefixer para estos navegadores.*/
+        
+        mixins,
         cssnested,
         cssnext({ browsers: ['> 5%', 'ie 8']}) // Ya incluye autoprefixier
     ]   

@@ -1,8 +1,17 @@
+/* -- Custom Media queries */
+
 .InvieHero{
-  background-color: #466173;
+  background-image: url('../images/background.png');
   padding: 20px;
   height: 500px;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2){
+
+.InvieHero{
+    background-image: url('../images/background2x.png')
+}   
+  }
 
 .InvieHero-header{
     display: -webkit-box;
@@ -14,8 +23,30 @@
             justify-content: space-between;
   }
 
+.InvieHero-logo{
+    transition: all 0.3s ease-in;
+  }
+
+.InvieHero-logo:hover{
+      filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+      -webkit-filter: blur(1px);
+              filter: blur(1px);
+    }
+
 .InvieHero-copy-title{
-      font-size: 63px
+      font-size: 63px;
+    }
+
+.InvieHero-copy-btn{
+      border-radius: 12px;
+      border: none;
+      color: #fafafa;
+      padding: 7px 12px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      background: #fd324e;
+      background: linear-gradient(to left, rgb(179, 51, 68), rgb(253, 124, 98));
     }
 
 .InvieFooter{
