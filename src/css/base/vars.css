@@ -2,6 +2,7 @@
   --bg-body: #fafafa;
   --bg-header: #466173;
   --bg-footer: #273b47;
+  --border-feature: #1f313c;
 
   --btn-gradient: #fd324e;
   --btn-gradient-start: color(var(--btn-gradient) blackness(30%));

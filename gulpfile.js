@@ -1,10 +1,14 @@
 var gulp = require('gulp')
 var postcss = require('gulp-postcss')
+var rucksack = require('gulp-rucksack')
 var cssnext = require('postcss-cssnext')
 //var autoprefixer = require('autoprefixer')
 var cssnested = require('postcss-nested')
 var mixins = require('postcss-mixins')
+var lost = require('lost')
 var atImport = require('postcss-import')
+var csswring = require('csswring')
+var mqpacker = require('css-mqpacker')
 var browserSync = require('browser-sync').create()
 
 
@@ -29,9 +33,13 @@ gulp.task('css', function(){
         atImport,
         mixins,
         cssnested,
-        cssnext({ browsers: ['> 5%', 'ie 8']}) // Ya incluye autoprefixier
+        lost(),
+        cssnext({ browsers: ['> 5%', 'ie 8']}), // Ya incluye autoprefixier
+        mqpacker,
+        csswring()
     ]   
     return gulp.src('src/css/*.css')
+        .pipe(rucksack())
         .pipe(postcss(processors))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream())
