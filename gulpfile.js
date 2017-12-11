@@ -4,6 +4,7 @@ var cssnext = require('postcss-cssnext')
 //var autoprefixer = require('autoprefixer')
 var cssnested = require('postcss-nested')
 var mixins = require('postcss-mixins')
+var atImport = require('postcss-import')
 var browserSync = require('browser-sync').create()
 
 
@@ -25,6 +26,7 @@ gulp.task('css', function(){
                                                     /* 1. A que navegadores queremos dar soporte, ej. más del 5% de utilización, de lo contrario no le colocará esos procesos especiales que tenga para ellos.
                                                      2. Que de soporte a IE a partir del 8, de esta manera incluirá vendorprefixer para estos navegadores.*/
         
+        atImport,
         mixins,
         cssnested,
         cssnext({ browsers: ['> 5%', 'ie 8']}) // Ya incluye autoprefixier

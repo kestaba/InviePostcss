@@ -1,21 +1,20 @@
-:root{
-  --bg-body: #fafafa;
-  --bg-header: #466173;
-  --bg-footer: #273b47;
+@import '/base/vars.css';
+@import '/base/iconfonts.css';
 
-  --btn-gradient: #fd324e;
-  --btn-gradient-start: color(var(--btn-gradient) blackness(30%));
-  --btn-gradient-end: color(var(--btn-gradient) lightness(+10%) hue(10%));
 
-  --fontsize: 18px;
+/* -- Mixins */
+
+@define-mixin btn $textColor, $bgColor, $bgColorStart, $bgColorEnd{
+  border-radius: 12px;
+  border: none;
+  color: $(textColor);
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: var(--fontsize);
+  text-decoration: none;
+  background: $(bgColor);
+  background: linear-gradient(to left, $(bgColorStart), $(bgColorEnd));
 }
-
-/* -- Custom Media queries */
-
-@custom-media --mobile (max-width: 500px);
-@custom-media --tablet (max-width: 650px);
-@custom-media --desktop (max-width: 800px);
-@custom-media --retina (-webkit-min-device-pixel-ratio: 2);
 
 .InvieHero{
   background-image: url('../images/background.png');
@@ -46,19 +45,17 @@
     }
 
     &-btn{
-      border-radius: 12px;
-      border: none;
-      color: var(--bg-body);
-      padding: 7px 12px;
-      cursor: pointer;
-      font-size: var(--fontsize);
-      text-decoration: none;
-      background: var(--btn-gradient);
-      background: linear-gradient(to left, var(--btn-gradient-start), var(--btn-gradient-end));
+      @mixin btn var(--bg-body), var(--btn-gradient), var(--btn-gradient-start), var(--btn-gradient-end)
     }
   }
 }
 
 .InvieFooter{
   background-color: var(--bg-footer);
+
+  &-form{
+    &-btn{
+      @mixin btn var(--bg-body), var(--btn-gradient), var(--btn-gradient-start), var(--btn-gradient-end)
+    }
+  }
 }
